@@ -9,6 +9,7 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon } from "react-icons/fa";
+import blogger from "../assets/blog5.png";
 
 const Header = () => {
   const path = useLocation().pathname;
@@ -18,8 +19,12 @@ const Header = () => {
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
-        <span className="px-2 py-1 bg-orange-500 rounded-lg text-white">
-          Blogger5ive
+        <span className="px-2 py-1">
+          <img
+            src={blogger}
+            alt="blogger5ive logo"
+            className="w-12 h-12 rounded"
+          />
         </span>
       </Link>
 
