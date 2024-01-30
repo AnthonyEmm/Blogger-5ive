@@ -1,7 +1,8 @@
 import User from "../model/user.model.js";
 import bcryptjs from "bcryptjs";
-import { errorHandler } from "../utils/error.js";
 import jwt from "jsonwebtoken";
+
+import { errorHandler } from "../utils/error.js";
 
 export const signup = async (req, res, next) => {
   const { username, email, password } = req.body;
@@ -76,7 +77,7 @@ export const google = async (req, res, next) => {
       const generatedPassword =
         Math.random().toString(36).slice(-8) +
         Math.random().toString(36).slice(-8);
-      const hashedPassword = bcryptjs.hash(generatedPassword, 10);
+      const hashedPassword = await bcryptjs.hash(generatedPassword, 10);
       const newUser = new User({
         username:
           name.toLowerCase().split(" ").join("") +
