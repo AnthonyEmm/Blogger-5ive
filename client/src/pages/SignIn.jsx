@@ -9,11 +9,12 @@ import {
 } from "../redux/user/userSlice";
 import blogger from "../assets/blog5.png";
 import { Button, Label, TextInput, Alert, Spinner } from "flowbite-react";
+import OAuth from "../components/OAuth";
 
 const SignIn = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const { loading, error: errorMessage } = useSelector((state) => state.user);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -27,16 +28,16 @@ const SignIn = () => {
     }
     try {
       dispatch(signInStart());
-      const response = await fetch("api/auth/signin", {
+      const res = await fetch("api/auth/signin", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(formData),
       });
-      const data = await response.json();
+      const data = await res.json();
       if (data.success === false) {
         dispatch(signInFailure(data.message));
       }
-      if (response.ok) {
+      if (res.ok) {
         dispatch(signInSuccess(data));
         navigate("/");
       }
@@ -96,9 +97,10 @@ const SignIn = () => {
                   <span className="pl-3">Loading...</span>
                 </>
               ) : (
-                "Sign Up "
+                "Sign In"
               )}
             </Button>
+            <OAuth />
           </form>
           <div className="flex gap-2 text-sm mt-5 font-semibold">
             <span>Don't have an account?</span>

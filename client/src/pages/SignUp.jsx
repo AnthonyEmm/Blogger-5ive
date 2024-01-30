@@ -3,12 +3,13 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import blogger from "../assets/blog5.png";
 import { Button, Label, TextInput, Alert, Spinner } from "flowbite-react";
+import OAuth from "../components/OAuth";
 
 const SignUp = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
@@ -19,20 +20,24 @@ const SignUp = () => {
     if (!formData.username || !formData.email || !formData.password) {
       return setErrorMessage("Please fill out all required fields!");
     }
+
     try {
       setLoading(true);
       setErrorMessage(null);
-      const response = await fetch("api/auth/signup", {
+      const res = await fetch("api/auth/signup", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(formData),
       });
-      const data = await response.json();
+      const data = await res.json();
+
+      setLoading(false);
+
       if (data.success === false) {
         return setErrorMessage(data.message);
       }
-      setLoading(false);
-      if (response.ok) {
+
+      if (res.ok) {
         navigate("/sign-in");
       }
     } catch (error) {
@@ -104,6 +109,7 @@ const SignUp = () => {
                 "Sign Up "
               )}
             </Button>
+            <OAuth />
           </form>
           <div className="flex gap-2 text-sm mt-5 font-semibold">
             <span>Have an account?</span>
