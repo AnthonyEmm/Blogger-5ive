@@ -23,7 +23,7 @@ const Header = () => {
           <img
             src={blogger}
             alt="blogger5ive logo"
-            className="w-12 h-12 rounded"
+            className="w-10 h-10 rounded"
           />
         </span>
       </Link>
