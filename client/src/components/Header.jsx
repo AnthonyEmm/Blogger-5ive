@@ -20,11 +20,7 @@ const Header = () => {
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
         <span className="px-2 py-1">
-          <img
-            src={blogger}
-            alt="blogger5ive logo"
-            className="w-10 h-10 rounded"
-          />
+          <img src={blogger} alt="blogger5ive logo" className="w-8 rounded" />
         </span>
       </Link>
 
