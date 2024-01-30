@@ -113,7 +113,6 @@ const FooterComponent = () => {
         <div className="w-full sm:flex sm:item-center sm:justify-between">
           <Footer.Copyright
             href="#"
-            Created
             by="Nnaemeka C. Emesowum"
             year={new Date().getFullYear()}
           />
