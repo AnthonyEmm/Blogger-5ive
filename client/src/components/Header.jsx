@@ -13,12 +13,16 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon } from "react-icons/fa";
+import { GoSun } from "react-icons/go";
+import { toggleTheme } from "../redux/theme/themeSlice";
 import blogger from "../assets/blog5.png";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 const Header = () => {
   const path = useLocation().pathname;
+  const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
+  const { theme } = useSelector((state) => state.theme);
   return (
     <Navbar className="border-b-2">
       <Link
@@ -29,7 +33,6 @@ const Header = () => {
           <img src={blogger} alt="blogger5ive logo" className="w-8 rounded" />
         </span>
       </Link>
-
       <form>
         <TextInput
           type="text"
@@ -38,15 +41,18 @@ const Header = () => {
           className="hidden lg:inline"
         />
       </form>
-      <Button className="w-12 h-10 lg:hidden" color="green" pill>
+      <Button className="w-12 h-10 lg:hidden" color="gray" pill>
         <AiOutlineSearch />
       </Button>
-
       <div className="flex gap-2 md:order-2">
-        <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
-          <FaMoon />
+        <Button
+          className="w-12 h-10 hidden sm:inline"
+          color="gray"
+          pill
+          onClick={() => dispatch(toggleTheme())}
+        >
+          {theme === "light" ? <GoSun /> : <FaMoon />}
         </Button>
-
         {currentUser ? (
           <Dropdown
             arrowIcon={false}
