@@ -41,7 +41,7 @@ const Header = () => {
           pill
           onClick={() => dispatch(toggleTheme())}
         >
-          {theme === "light" ? <GoSun /> : <FaMoon />}
+          {theme === "light" ? <FaMoon /> : <GoSun />}
         </Button>
         {currentUser ? (
           <Dropdown
