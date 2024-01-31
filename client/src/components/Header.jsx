@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  Navbar,
-  TextInput,
-  Button,
-  NavbarCollapse,
-  NavbarToggle,
-  Dropdown,
-  Avatar,
-  DropdownItem,
-  DropdownDivider,
-} from "flowbite-react";
+import { Navbar, TextInput, Button, Dropdown, Avatar } from "flowbite-react";
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon } from "react-icons/fa";
@@ -68,9 +58,9 @@ const Header = () => {
               </span>
             </Dropdown.Header>
             <Link to={"/dashboard?tab=profile"}>
-              <DropdownItem>Profile</DropdownItem>
-              <DropdownDivider />
-              <DropdownItem>Sign out</DropdownItem>
+              <Dropdown.Item>Profile</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item>Sign out</Dropdown.Item>
             </Link>
           </Dropdown>
         ) : (
@@ -79,9 +69,9 @@ const Header = () => {
           </Link>
         )}
 
-        <NavbarToggle />
+        <Navbar.Toggle />
       </div>
-      <NavbarCollapse>
+      <Navbar.Collapse>
         <Navbar.Link active={path === "/"} as={"div"}>
           <Link to="/">Home</Link>
         </Navbar.Link>
@@ -91,7 +81,7 @@ const Header = () => {
         <Navbar.Link active={path === "/projects"} as={"div"}>
           <Link to="/projects">Projects</Link>
         </Navbar.Link>
-      </NavbarCollapse>
+      </Navbar.Collapse>
     </Navbar>
   );
 };
