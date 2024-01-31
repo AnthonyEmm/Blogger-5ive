@@ -3,6 +3,7 @@ import { Alert, Button, Modal, TextInput } from "flowbite-react";
 import { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import {
   getStorage,
   uploadBytesResumable,
@@ -23,7 +24,7 @@ import {
 } from "../redux/user/userSlice";
 
 const ProfilePage = () => {
-  const { currentUser, error } = useSelector((state) => state.user);
+  const { currentUser, error, loading } = useSelector((state) => state.user);
   const [imageFile, setImageFile] = useState(null);
   const [imageFileUrl, setImageFileUrl] = useState(null);
   const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
@@ -226,9 +227,20 @@ const ProfilePage = () => {
           placeholder="Password"
           onChange={handleChange}
         />
-        <Button type="submit" gradientDuoTone="purpleToBlue">
-          Update
+        <Button
+          type="submit"
+          gradientDuoTone="purpleToBlue"
+          disabled={loading || imageFileUploading}
+        >
+          {loading ? "Loading..." : "Update"}
         </Button>
+        {currentUser.isAdmin && (
+          <Link to={"/create-post"}>
+            <Button type="button" color="success" className="w-full">
+              Create blog
+            </Button>
+          </Link>
+        )}
       </form>
 
       <div className="text-red-500 flex justify-between mt-5">
