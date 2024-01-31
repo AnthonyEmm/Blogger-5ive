@@ -10,6 +10,10 @@ const userSchema = new mongoose.Schema(
       default:
         "https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png",
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true },
 );
