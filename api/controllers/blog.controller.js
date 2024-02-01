@@ -75,3 +75,17 @@ export const getblogs = async (req, res, next) => {
     next(error);
   }
 };
+
+export const deleteblog = async (req, res, next) => {
+  if (!req.user.isAdmin || req.user.id !== req.params.userId) {
+    return next(
+      errorHandler(400, "You are not authorized to delete this blog"),
+    );
+  }
+  try {
+    await Blog.findByIdAndDelete(req.params.blogId);
+    res.status(200).json("Blog deleted successfully");
+  } catch (error) {
+    next(error);
+  }
+};
