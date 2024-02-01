@@ -235,7 +235,7 @@ const ProfilePage = () => {
           {loading ? "Loading..." : "Update"}
         </Button>
         {currentUser.isAdmin && (
-          <Link to={"/create-post"}>
+          <Link to={"/create-blog"}>
             <Button type="button" color="success" className="w-full">
               Create blog
             </Button>
