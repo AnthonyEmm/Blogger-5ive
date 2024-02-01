@@ -10,6 +10,7 @@ import FooterComponent from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminPrivateRoute from "./components/AdminPrivateRoute";
 import CreateBlog from "./pages/CreateBlog";
+import UpdateBlog from "./pages/UpdateBlog";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         </Route>
         <Route element={<AdminPrivateRoute />}>
           <Route path="/create-blog" element={<CreateBlog />} />
+          <Route path="/update-blog/:blogId" element={<UpdateBlog />} />
         </Route>
       </Routes>
       <FooterComponent />

@@ -39,8 +39,8 @@ export const getblogs = async (req, res, next) => {
     const blogs = await Blog.find({
       ...(req.query.userId && { userId: req.query.userId }),
       ...(req.query.category && { category: req.query.category }),
-      ...(req.query.slug && { userId: req.query.slug }),
-      ...(req.query.blogId && { _Id: req.query.blogId }),
+      ...(req.query.slug && { category: req.query.slug }),
+      ...(req.query.blogId && { _id: req.query.blogId }),
       ...(req.query.searchTerm && {
         $or: [
           { title: { $regex: req.query.searchTerm, $options: "i" } },
@@ -79,12 +79,37 @@ export const getblogs = async (req, res, next) => {
 export const deleteblog = async (req, res, next) => {
   if (!req.user.isAdmin || req.user.id !== req.params.userId) {
     return next(
-      errorHandler(400, "You are not authorized to delete this blog"),
+      errorHandler(403, "You are not authorized to delete this blog"),
     );
   }
   try {
     await Blog.findByIdAndDelete(req.params.blogId);
     res.status(200).json("Blog deleted successfully");
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateblog = async (req, res, next) => {
+  if (!req.user.isAdmin || req.user.id !== req.params.userId) {
+    return next(
+      errorHandler(403, "You are not authorized to update this blog"),
+    );
+  }
+  try {
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      req.params.blogId,
+      {
+        $set: {
+          title: req.body.title,
+          content: req.body.content,
+          category: req.body.category,
+          image: req.body.image,
+        },
+      },
+      { new: true },
+    );
+    res.status(200).json(updatedBlog);
   } catch (error) {
     next(error);
   }
