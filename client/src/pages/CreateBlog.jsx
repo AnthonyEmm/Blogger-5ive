@@ -101,15 +101,15 @@ const CreateBlog = () => {
               setFormData({ ...formData, category: e.target.value })
             }
           >
-            <option value="uncategorized">Select a category</option>
-            <option value="beauty">Beauty</option>
-            <option value="finance">Fashion</option>
-            <option value="finance">Finance</option>
-            <option value="health">Health</option>
-            <option value="politics">Politics</option>
-            <option value="sports">Sports & Fitness</option>
-            <option value="technology">Technology</option>
-            <option value="travel">Travel & Vacation</option>
+            <option value="Uncategorized">Select a category</option>
+            <option value="Beauty">Beauty</option>
+            <option value="Finance">Fashion</option>
+            <option value="Finance">Finance</option>
+            <option value="Health">Health</option>
+            <option value="Politics">Politics</option>
+            <option value="Sports">Sports & Fitness</option>
+            <option value="Technology">Technology</option>
+            <option value="Travel & Vacation">Travel & Vacation</option>
           </Select>
         </div>
 
