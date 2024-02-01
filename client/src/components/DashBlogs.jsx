@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 const DashBlogs = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [userBlogs, setUserBlogs] = useState([]);
+  const [showMore, setShowMore] = useState(true);
 
-  console.log(userBlogs);
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -16,6 +16,9 @@ const DashBlogs = () => {
         const data = await res.json();
         if (res.ok) {
           setUserBlogs(data.blogs);
+          if (data.blogs.length < 9) {
+            setShowMore(false);
+          }
         }
       } catch (error) {
         console.log(error);
@@ -26,6 +29,26 @@ const DashBlogs = () => {
       fetchBlogs();
     }
   }, [currentUser._id]);
+
+  const handleShowMore = async () => {
+    const startIndex = userBlogs.length;
+    try {
+      const res = await fetch(
+        `api/blog/getblogs?userId=${currentUser._id}&startIndex=${startIndex}`,
+      );
+
+      const data = await res.json();
+      if (res.ok) {
+        setUserBlogs((prev) => [...prev, ...data.blogs]);
+
+        if (data.blogs.length < 9) {
+          setShowMore(false);
+        }
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div
@@ -91,6 +114,14 @@ const DashBlogs = () => {
               </Table.Body>
             ))}
           </Table>
+          {showMore && (
+            <button
+              className="w-full text-cyan-600 self-center text-sm py-7 dark:text-lime-600"
+              onClick={handleShowMore}
+            >
+              Show More...
+            </button>
+          )}
         </>
       ) : (
         <p>You have no blogs yet!</p>
