@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Table, Modal, Button } from "flowbite-react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { FaCheck, FaTimes } from "react-icons/fa";
+import { Tooltip } from "flowbite-react";
 
 const DashUsers = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -16,20 +18,11 @@ const DashUsers = () => {
       try {
         const res = await fetch(`/api/user/getusers`);
         const data = await res.json();
-        if (!res.ok) {
-          console.error(`Error: ${res.status} - ${res.statusText}`);
-          return;
-        }
-
-        const contentType = res.headers.get("content-type");
-        if (contentType && contentType.includes("application/json")) {
-          const data = await res.json();
+        if (res.ok) {
           setUsers(data.users);
           if (data.users.length < 9) {
             setShowMore(false);
           }
-        } else {
-          console.log("Response is not in JSON format");
         }
       } catch (error) {
         console.log(error);
@@ -73,7 +66,9 @@ const DashUsers = () => {
               <Table.HeadCell>Date Created</Table.HeadCell>
               <Table.HeadCell>User Image</Table.HeadCell>
               <Table.HeadCell>Username</Table.HeadCell>
+              <Table.HeadCell>Email</Table.HeadCell>
               <Table.HeadCell>Admin</Table.HeadCell>
+              <Table.HeadCell>Delete</Table.HeadCell>
             </Table.Head>
             {users.map((user) => (
               <Table.Body className="divide-y" key={user._id}>
@@ -86,14 +81,24 @@ const DashUsers = () => {
                     <img
                       src={user.profilePicture}
                       alt={user.username}
-                      className="w-20 h-10 object-cover bg-gray-500"
+                      className="w-10 h-10 object-cover bg-gray-500 rounded-full"
                     />
                   </Table.Cell>
 
                   <Table.Cell>{user.username}</Table.Cell>
 
                   <Table.Cell>{user.email}</Table.Cell>
-                  <Table.Cell>{user.isAdmin}</Table.Cell>
+                  <Table.Cell>
+                    {user.isAdmin ? (
+                      <Tooltip content="Yes">
+                        <FaCheck className="text-green-500" />
+                      </Tooltip>
+                    ) : (
+                      <Tooltip content="No">
+                        <FaTimes className="text-red-500" />
+                      </Tooltip>
+                    )}
+                  </Table.Cell>
 
                   <Table.Cell>
                     <span
