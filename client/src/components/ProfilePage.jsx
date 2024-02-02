@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert, Button, Modal, TextInput } from "flowbite-react";
+import { Alert, Button, Modal, TextInput, Tooltip } from "flowbite-react";
 import { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
@@ -244,12 +244,17 @@ const ProfilePage = () => {
       </form>
 
       <div className="text-red-500 flex justify-between mt-5">
-        <span className="cursor-pointer" onClick={() => setShowModal(true)}>
-          Delete Account
-        </span>
-        <span onClick={handleSignout} className="cursor-pointer">
-          Sign Out
-        </span>
+        <Tooltip content="Delete Account">
+          <span className="cursor-pointer" onClick={() => setShowModal(true)}>
+            Delete Account
+          </span>
+        </Tooltip>
+
+        <Tooltip content="Sign Out">
+          <span onClick={handleSignout} className="cursor-pointer">
+            Sign Out
+          </span>
+        </Tooltip>
       </div>
 
       {updateUserSuccess && (

@@ -1,5 +1,12 @@
 import React from "react";
-import { Navbar, TextInput, Button, Dropdown, Avatar } from "flowbite-react";
+import {
+  Navbar,
+  TextInput,
+  Button,
+  Dropdown,
+  Avatar,
+  Tooltip,
+} from "flowbite-react";
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon } from "react-icons/fa";
@@ -59,7 +66,15 @@ const Header = () => {
           pill
           onClick={() => dispatch(toggleTheme())}
         >
-          {theme === "light" ? <FaMoon /> : <GoSun />}
+          {theme === "light" ? (
+            <Tooltip content="Toggle Dark Mode" style="dark">
+              <FaMoon />
+            </Tooltip>
+          ) : (
+            <Tooltip content="Toggle Light Mode" style="light">
+              <GoSun />
+            </Tooltip>
+          )}
         </Button>
         {currentUser ? (
           <Dropdown
