@@ -39,7 +39,7 @@ export const getblogs = async (req, res, next) => {
     const blogs = await Blog.find({
       ...(req.query.userId && { userId: req.query.userId }),
       ...(req.query.category && { category: req.query.category }),
-      ...(req.query.slug && { category: req.query.slug }),
+      ...(req.query.slug && { slug: req.query.slug }),
       ...(req.query.blogId && { _id: req.query.blogId }),
       ...(req.query.searchTerm && {
         $or: [
