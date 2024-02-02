@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Button, Spinner } from "flowbite-react";
 import CallToAction from "../components/CallToAction";
+import CommentSection from "../components/CommentSection";
 
 const BlogPage = () => {
   const { blogSlug } = useParams();
@@ -72,10 +73,10 @@ const BlogPage = () => {
         className="p-3 mx-w-2xl mx-auto w-full post-content"
         dangerouslySetInnerHTML={{ __html: blog && blog.content }}
       ></div>
-
       <div className="max-w-4xl mx-auto w-full">
         <CallToAction />
       </div>
+      <CommentSection blogId={blog._id} />
     </main>
   );
 };
