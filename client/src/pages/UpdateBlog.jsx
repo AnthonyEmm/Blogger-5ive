@@ -103,7 +103,7 @@ const UpdateBlog = () => {
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({ ...formData, _id: blogId.toString() }),
         },
       );
       const data = await res.json();
@@ -147,6 +147,7 @@ const UpdateBlog = () => {
             <option value="Finance">Finance</option>
             <option value="Health">Health</option>
             <option value="Politics">Politics</option>
+            <option value="Real Estate">Real Estate</option>
             <option value="Sports & Fitness">Sports & Fitness</option>
             <option value="Technology">Technology</option>
             <option value="Travel & Vacation">Travel & Vacation</option>

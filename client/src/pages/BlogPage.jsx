@@ -40,7 +40,7 @@ const BlogPage = () => {
   useEffect(() => {
     try {
       const fetchRecentBlogs = async () => {
-        const res = await fetch("/api/blog/getblogs?limit=3");
+        const res = await fetch("/api/blog/getblogs?limit=2");
         const data = await res.json();
         if (res.ok) {
           setRecentBlogs(data.blogs);
@@ -96,7 +96,7 @@ const BlogPage = () => {
       <CommentSection blogId={blog._id} />
 
       <div className="flex flex-col justify-center items-center mb-5">
-        <h1 className="text-xl mt-5">Recent blogs</h1>
+        <h1 className="text-xl mt-5">Most Recent Blogs</h1>
         <div className="flex flex-wrap gap-5 mt-5 justify-center">
           {recentBlogs &&
             recentBlogs.map((blog) => <BlogCard key={blog._id} blog={blog} />)}

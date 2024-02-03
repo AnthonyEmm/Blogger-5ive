@@ -8,8 +8,8 @@ const BlogCard = ({ blog }) => {
         <img
           src={blog.image}
           alt={blog.slug}
-          className="h-[200px] 
-          w-full object-cover group-hover:h-[200px] transition-all duration-300 z-20"
+          className="h-[300px] 
+          w-full object-cover group-hover:h-[180px] transition-all duration-300 z-20"
         />
       </Link>
       <div className="p-3 flex flex-col gap-2">

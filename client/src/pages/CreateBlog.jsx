@@ -107,6 +107,7 @@ const CreateBlog = () => {
             <option value="Finance">Finance</option>
             <option value="Health">Health</option>
             <option value="Politics">Politics</option>
+            <option value="Real Estate">Real Estate</option>
             <option value="Sports & Fitness">Sports & Fitness</option>
             <option value="Technology">Technology</option>
             <option value="Travel & Vacation">Travel & Vacation</option>
