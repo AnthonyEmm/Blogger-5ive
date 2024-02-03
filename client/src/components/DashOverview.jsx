@@ -141,7 +141,7 @@ const DashOverview = () => {
             {users &&
               users.map((user) => (
                 <Table.Body key={user._id} className="divide-y">
-                  <Table.Row className="bg-gray-400 dark:border-gray-300 dark:bg-slate-600">
+                  <Table.Row className="bg-gray-700 dark:border-gray-300 dark:bg-slate-600">
                     <Table.Cell>
                       <img
                         src={user.profilePicture}
@@ -149,7 +149,7 @@ const DashOverview = () => {
                         className="w-10 h-10 rounded-full bg-gray-600 dark:bg-gray-500"
                       />
                     </Table.Cell>
-                    <Table.Cell className="text-gray-800 dark:text-gray-300">
+                    <Table.Cell className="text-gray-300 dark:text-gray-300">
                       {user.username}
                     </Table.Cell>
                   </Table.Row>
@@ -170,13 +170,15 @@ const DashOverview = () => {
               <Table.HeadCell>Likes</Table.HeadCell>
             </Table.Head>
             {comments &&
-              users.map((comment) => (
+              comments.map((comment) => (
                 <Table.Body key={comment._id} className="divide-y">
-                  <Table.Row className="bg-gray-400 dark:border-gray-300 dark:bg-slate-600">
+                  <Table.Row className="bg-gray-700 dark:border-gray-300 dark:bg-slate-600">
                     <Table.Cell className="w-96">
-                      <p className="line-clamp-2">{comment.content}</p>
+                      <p className="line-clamp-2 text-gray-300">
+                        {comment.content}
+                      </p>
                     </Table.Cell>
-                    <Table.Cell className="text-gray-800 dark:text-gray-300">
+                    <Table.Cell className="text-gray-300 dark:text-gray-300">
                       {comment.numberOfLikes}
                     </Table.Cell>
                   </Table.Row>
@@ -200,7 +202,7 @@ const DashOverview = () => {
             {blogs &&
               blogs.map((blog) => (
                 <Table.Body key={blog._id} className="divide-y">
-                  <Table.Row className="bg-gray-400 dark:border-gray-300 dark:bg-slate-600">
+                  <Table.Row className="bg-gray-700 dark:border-gray-300 dark:bg-slate-600">
                     <Table.Cell>
                       <img
                         src={blog.image}
@@ -208,10 +210,10 @@ const DashOverview = () => {
                         className="w-14 h-10 rounded-md bg-gray-600 dark:bg-gray-500"
                       />
                     </Table.Cell>
-                    <Table.Cell className="text-gray-800 dark:text-gray-300 w-96">
+                    <Table.Cell className="text-gray-300 dark:text-gray-300 w-96">
                       {blog.title}
                     </Table.Cell>
-                    <Table.Cell className="text-gray-800 dark:text-gray-300 w-5">
+                    <Table.Cell className="text-gray-300 dark:text-gray-300 w-5">
                       {blog.category}
                     </Table.Cell>
                   </Table.Row>

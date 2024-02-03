@@ -5,13 +5,13 @@ import { Sidebar } from "flowbite-react";
 import {
   HiAnnotation,
   HiArrowSmRight,
-  HiChartPie,
   HiDocumentText,
   HiOutlineUserGroup,
   HiUser,
 } from "react-icons/hi";
 import { signoutSuccess } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { MdDashboardCustomize } from "react-icons/md";
 
 const DashSidebar = () => {
   const location = useLocation();
@@ -51,7 +51,7 @@ const DashSidebar = () => {
             <Link to="/dashboard?tab=overview">
               <Sidebar.Item
                 active={tab === "overview" || !tab}
-                icon={HiChartPie}
+                icon={MdDashboardCustomize}
                 as="div"
               >
                 Dashboard
