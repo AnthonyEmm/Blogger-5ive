@@ -4,12 +4,14 @@ import { useParams, Link } from "react-router-dom";
 import { Button, Spinner } from "flowbite-react";
 import CallToAction from "../components/CallToAction";
 import CommentSection from "../components/CommentSection";
+import BlogCard from "../components/BlogCard";
 
 const BlogPage = () => {
   const { blogSlug } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [blog, setBlog] = useState(null);
+  const [recentBlogs, setRecentBlogs] = useState(null);
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -34,6 +36,21 @@ const BlogPage = () => {
     };
     fetchBlog();
   }, [blogSlug]);
+
+  useEffect(() => {
+    try {
+      const fetchRecentBlogs = async () => {
+        const res = await fetch("/api/blog/getblogs?limit=3");
+        const data = await res.json();
+        if (res.ok) {
+          setRecentBlogs(data.blogs);
+        }
+      };
+      fetchRecentBlogs();
+    } catch (error) {
+      console.log(error.message);
+    }
+  }, []);
 
   if (loading)
     return (
@@ -77,6 +94,14 @@ const BlogPage = () => {
         <CallToAction />
       </div>
       <CommentSection blogId={blog._id} />
+
+      <div className="flex flex-col justify-center items-center mb-5">
+        <h1 className="text-xl mt-5">Recent blogs</h1>
+        <div className="flex flex-wrap gap-5 mt-5 justify-center">
+          {recentBlogs &&
+            recentBlogs.map((blog) => <BlogCard key={blog._id} blog={blog} />)}
+        </div>
+      </div>
     </main>
   );
 };
