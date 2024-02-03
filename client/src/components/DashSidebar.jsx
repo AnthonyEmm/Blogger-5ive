@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Sidebar } from "flowbite-react";
 import {
+  HiAnnotation,
   HiArrowSmRight,
   HiDocumentText,
   HiOutlineUserGroup,
@@ -57,15 +58,26 @@ const DashSidebar = () => {
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
-            <Link to="/dashboard?tab=blogs">
-              <Sidebar.Item
-                active={tab === "blogs"}
-                icon={HiDocumentText}
-                as="div"
-              >
-                Blogs
-              </Sidebar.Item>
-            </Link>
+            <>
+              <Link to="/dashboard?tab=blogs">
+                <Sidebar.Item
+                  active={tab === "blogs"}
+                  icon={HiDocumentText}
+                  as="div"
+                >
+                  Blogs
+                </Sidebar.Item>
+              </Link>
+              <Link to="/dashboard?tab=comments">
+                <Sidebar.Item
+                  active={tab === "comments"}
+                  icon={HiAnnotation}
+                  as="div"
+                >
+                  Comments
+                </Sidebar.Item>
+              </Link>
+            </>
           )}
           {currentUser.isAdmin && (
             <Link to="/dashboard?tab=users">
