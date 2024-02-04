@@ -95,7 +95,7 @@ const DashComments = () => {
             </Table.Head>
             {comments.map((comment) => (
               <Table.Body className="divide-y" key={comment._id}>
-                <Table.Row>
+                <Table.Row className="bg-gray-700 dark:border-gray-300 dark:bg-slate-600 text-gray-400">
                   <Table.Cell>
                     {new Date(comment.updatedAt).toLocaleDateString()}
                   </Table.Cell>

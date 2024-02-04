@@ -149,7 +149,7 @@ const DashOverview = () => {
                         className="w-10 h-10 rounded-full bg-gray-600 dark:bg-gray-500"
                       />
                     </Table.Cell>
-                    <Table.Cell className="text-gray-300 dark:text-gray-300">
+                    <Table.Cell className="text-cyan-400 dark:text-amber-300">
                       {user.username}
                     </Table.Cell>
                   </Table.Row>
@@ -172,13 +172,13 @@ const DashOverview = () => {
             {comments &&
               comments.map((comment) => (
                 <Table.Body key={comment._id} className="divide-y">
-                  <Table.Row className="bg-gray-700 dark:border-gray-300 dark:bg-slate-600">
+                  <Table.Row className="bg-gray-700 dark:border-gray-700 dark:bg-slate-600">
                     <Table.Cell className="w-96">
-                      <p className="line-clamp-2 text-gray-300">
+                      <p className="line-clamp-2 text-gray-400">
                         {comment.content}
                       </p>
                     </Table.Cell>
-                    <Table.Cell className="text-gray-300 dark:text-gray-300">
+                    <Table.Cell className="text-lime-500 dark:text-lime-500">
                       {comment.numberOfLikes}
                     </Table.Cell>
                   </Table.Row>
@@ -190,7 +190,7 @@ const DashOverview = () => {
           <div className="flex justify-between p-3 text-sm font-semibold">
             <h1 className="text-center p-2">Most recent blogs</h1>
             <Button gradientDuoTone="purpleToBlue">
-              <Link to={"/dashboard?tab=users"}>See all</Link>
+              <Link to={"/dashboard?tab=blogs"}>See all</Link>
             </Button>
           </div>
           <Table>
@@ -202,7 +202,7 @@ const DashOverview = () => {
             {blogs &&
               blogs.map((blog) => (
                 <Table.Body key={blog._id} className="divide-y">
-                  <Table.Row className="bg-gray-700 dark:border-gray-300 dark:bg-slate-600">
+                  <Table.Row className="bg-gray-700 dark:border-gray-700 dark:bg-slate-600">
                     <Table.Cell>
                       <img
                         src={blog.image}
@@ -210,10 +210,10 @@ const DashOverview = () => {
                         className="w-14 h-10 rounded-md bg-gray-600 dark:bg-gray-500"
                       />
                     </Table.Cell>
-                    <Table.Cell className="text-gray-300 dark:text-gray-300 w-96">
+                    <Table.Cell className="text-gray-400 dark:text-gray-300 w-96">
                       {blog.title}
                     </Table.Cell>
-                    <Table.Cell className="text-gray-300 dark:text-gray-300 w-5">
+                    <Table.Cell className="text-amber-400 dark:text-lime-500 w-5">
                       {blog.category}
                     </Table.Cell>
                   </Table.Row>

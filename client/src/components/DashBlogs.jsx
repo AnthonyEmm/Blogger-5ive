@@ -84,7 +84,7 @@ const DashBlogs = () => {
     >
       {currentUser.isAdmin && userBlogs.length > 0 ? (
         <>
-          <Table hoverable className="shadow-md">
+          <Table hoverable className=" shadow-md">
             <Table.Head>
               <Table.HeadCell>Date Updated</Table.HeadCell>
               <Table.HeadCell>Blog Image</Table.HeadCell>
@@ -97,7 +97,7 @@ const DashBlogs = () => {
             </Table.Head>
             {userBlogs.map((blog) => (
               <Table.Body className="divide-y" key={blog._id}>
-                <Table.Row>
+                <Table.Row className="bg-gray-700 dark:border-gray-600 dark:bg-slate-600">
                   <Table.Cell>
                     {new Date(blog.updatedAt).toLocaleDateString()}
                   </Table.Cell>
@@ -107,7 +107,7 @@ const DashBlogs = () => {
                       <img
                         src={blog.image}
                         alt={blog.title}
-                        className="w-20 h-10 object-cover bg-gray-500"
+                        className="w-20 h-10 object-cover bg-gray-300 rounded-md"
                       />
                     </Link>
                   </Table.Cell>

@@ -87,7 +87,7 @@ const DashUsers = () => {
             </Table.Head>
             {users.map((user) => (
               <Table.Body className="divide-y" key={user._id}>
-                <Table.Row>
+                <Table.Row className="bg-gray-700 dark:border-gray-300 dark:bg-slate-600 text-gray-400">
                   <Table.Cell>
                     {new Date(user.createdAt).toLocaleDateString()}
                   </Table.Cell>
