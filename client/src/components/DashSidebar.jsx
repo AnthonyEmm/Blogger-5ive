@@ -54,7 +54,7 @@ const DashSidebar = () => {
                 icon={MdDashboardCustomize}
                 as="div"
               >
-                Dashboard
+                Overview
               </Sidebar.Item>
             </Link>
           )}

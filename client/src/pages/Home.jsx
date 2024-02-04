@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const res = await fetch(`/api/blog/getblogs`);
+      const res = await fetch(`/api/blog/getblogs?limit=2`);
       const data = await res.json();
       setBlogs(data.blogs);
     };

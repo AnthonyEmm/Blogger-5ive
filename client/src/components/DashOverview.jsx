@@ -128,12 +128,12 @@ const DashOverview = () => {
       <div className="flex flex-wrap gap-4 mx-auto justify-center mt-5">
         <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-slate-800">
           <div className="flex justify-between p-3 text-sm font-semibold">
-            <h1 className="text-center p-2">Recent users</h1>
+            <h1 className="text-center p-2">All Users</h1>
             <Button gradientDuoTone="purpleToBlue">
               <Link to={"/dashboard?tab=users"}>See all</Link>
             </Button>
           </div>
-          <Table>
+          <Table hoverable>
             <Table.Head>
               <Table.HeadCell>User Image</Table.HeadCell>
               <Table.HeadCell>Username</Table.HeadCell>
@@ -142,7 +142,7 @@ const DashOverview = () => {
               users.map((user) => (
                 <Table.Body key={user._id} className="divide-y">
                   <Table.Row className="bg-gray-700 dark:border-gray-300 dark:bg-slate-600">
-                    <Table.Cell>
+                    <Table.Cell className="w-56">
                       <img
                         src={user.profilePicture}
                         alt="user"
@@ -159,14 +159,14 @@ const DashOverview = () => {
         </div>
         <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-slate-800">
           <div className="flex justify-between p-3 text-sm font-semibold">
-            <h1 className="text-center p-2">Recent comments</h1>
+            <h1 className="text-center p-2">Recent Comments</h1>
             <Button gradientDuoTone="purpleToBlue">
               <Link to={"/dashboard?tab=comments"}>See all</Link>
             </Button>
           </div>
-          <Table>
+          <Table hoverable>
             <Table.Head>
-              <Table.HeadCell>Comment content</Table.HeadCell>
+              <Table.HeadCell>Comment Content</Table.HeadCell>
               <Table.HeadCell>Likes</Table.HeadCell>
             </Table.Head>
             {comments &&
@@ -188,12 +188,12 @@ const DashOverview = () => {
         </div>
         <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-slate-800">
           <div className="flex justify-between p-3 text-sm font-semibold">
-            <h1 className="text-center p-2">Most recent blogs</h1>
+            <h1 className="text-center p-2">Most Recent Blogs</h1>
             <Button gradientDuoTone="purpleToBlue">
               <Link to={"/dashboard?tab=blogs"}>See all</Link>
             </Button>
           </div>
-          <Table>
+          <Table hoverable>
             <Table.Head>
               <Table.HeadCell>Blog Image</Table.HeadCell>
               <Table.HeadCell>Blog Title</Table.HeadCell>
@@ -206,7 +206,7 @@ const DashOverview = () => {
                     <Table.Cell>
                       <img
                         src={blog.image}
-                        alt="user"
+                        alt="blogs"
                         className="w-14 h-10 rounded-md bg-gray-600 dark:bg-gray-500"
                       />
                     </Table.Cell>
