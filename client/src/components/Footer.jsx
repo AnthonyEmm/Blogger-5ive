@@ -14,13 +14,15 @@ const FooterComponent = () => {
               to="/"
               className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
             >
-              <span className="px-2 py-1">
-                <img
-                  src={blogger}
-                  alt="blogger5ive logo"
-                  className="w-20 rounded"
-                />
-              </span>
+              <Tooltip content="Blogger 5ive&copy;">
+                <span className="px-2 py-1">
+                  <img
+                    src={blogger}
+                    alt="blogger5ive logo"
+                    className="w-20 rounded"
+                  />
+                </span>
+              </Tooltip>
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-8 sm: mt-4 sm:grid-cols-3 sm:gap-6">

@@ -13,6 +13,7 @@ import UpdateBlog from "./pages/UpdateBlog";
 import BlogPage from "./pages/BlogPage";
 import ScrollToTop from "./components/ScrollToTop";
 import Search from "./pages/Search";
+import AdminSubscription from "./pages/AdminSubscription";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/search" element={<Search />} />
         <Route path="/blog/:blogSlug" element={<BlogPage />} />
+        <Route path="/become-admin" element={<AdminSubscription />} />
 
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
