@@ -1,8 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import CallToAction from "../components/CallToAction";
 
 const AdminSubscription = () => {
+  const handleComposeEmail = () => {
+    const recipientEmail = "blogger5iveblogs@gmail.com";
+    const gmailComposeURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}`;
+
+    if (window.innerWidth < 768) {
+      window.location.href = gmailComposeURL;
+    } else {
+      window.open(gmailComposeURL, "_blank", { bypassServiceWorker: true });
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-2xl mx-auto p-3 text-center">
@@ -29,8 +39,11 @@ const AdminSubscription = () => {
           </div>
         </div>
 
-        <button className="text-cyan-500 text-lg hover:underline p-7 w-full">
-          <Link to="/"> blogger5ive@gmail.com</Link>
+        <button
+          className="text-cyan-500 text-lg hover:underline p-7 w-full"
+          onClick={handleComposeEmail}
+        >
+          blogger5iveblogs@gmail.com
         </button>
         <CallToAction />
       </div>
