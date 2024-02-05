@@ -90,7 +90,7 @@ const Search = () => {
     if (res.ok) {
       const data = await res.json();
       setBlogs([...blogs, ...data.blogs]);
-      if (data.Blogs.length === 9) {
+      if (data.blogs.length === 9) {
         setShowMore(true);
       } else {
         setShowMore(false);
