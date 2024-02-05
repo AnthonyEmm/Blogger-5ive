@@ -16,7 +16,6 @@ import { toggleTheme } from "../redux/theme/themeSlice";
 import blogger from "../assets/blog5.png";
 import { useSelector, useDispatch } from "react-redux";
 import { signoutSuccess } from "../redux/user/userSlice";
-import { set } from "mongoose";
 
 const Header = () => {
   const path = useLocation().pathname;
@@ -133,9 +132,6 @@ const Header = () => {
         </Navbar.Link>
         <Navbar.Link active={path === "/about"} as={"div"}>
           <Link to="/about">About</Link>
-        </Navbar.Link>
-        <Navbar.Link active={path === "/projects"} as={"div"}>
-          <Link to="/projects">Projects</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
