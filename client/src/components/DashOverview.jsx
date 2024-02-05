@@ -190,7 +190,7 @@ const DashOverview = () => {
           <div className="flex justify-between p-3 text-sm font-semibold">
             <h1 className="text-center p-2">Most Recent Blogs</h1>
             <Button gradientDuoTone="purpleToBlue">
-              <Link to={"/dashboard?tab=blogs"}>See all</Link>
+              <Link to={"/dashboard?tab=blogs"}>My Blogs</Link>
             </Button>
           </div>
           <Table hoverable>
