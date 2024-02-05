@@ -14,8 +14,9 @@ const AdminSubscription = () => {
             <p>
               We appreciate your continued support and engagement within our
               community, as we strive to maintain a high standard of service and
-              security. In order to write blogs on our platform there is a
-              subscription model basically for administrative privileges.
+              security. In the future, in order to write blogs on our platform,
+              we will introduce a subscription model basically for
+              administrative privileges. All users will be updated accordingly.
             </p>
             <p>
               Becoming an admin on our platform in order to write your amazing
@@ -24,10 +25,12 @@ const AdminSubscription = () => {
               will contribute to the ongoing improvement of our services,
               ensuring a smoother and more efficient experience for all users.
             </p>
+            <p>Contact us to become an admin:</p>
           </div>
         </div>
+
         <button className="text-cyan-500 text-lg hover:underline p-7 w-full">
-          <Link to="/">Subscribe</Link>
+          <Link to="/"> blogger5ive@gmail.com</Link>
         </button>
         <CallToAction />
       </div>
