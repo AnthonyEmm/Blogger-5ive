@@ -35,7 +35,7 @@ const AdminSubscription = () => {
               will contribute to the ongoing improvement of our services,
               ensuring a smoother and more efficient experience for all users.
             </p>
-            <p>Contact us to become an admin:</p>
+            <p>Contact us to unlock admin privileges:</p>
           </div>
         </div>
 

@@ -72,11 +72,14 @@ const FooterComponent = () => {
 
         <Footer.Divider />
         <div className="w-full sm:flex sm:item-center sm:justify-between">
-          <Footer.Copyright
-            href="#"
-            by="Blogger 5ive"
-            year={new Date().getFullYear()}
-          />
+          <Tooltip content="Scroll to top">
+            <Footer.Copyright
+              href="#"
+              by="Blogger 5ive"
+              year={new Date().getFullYear()}
+            />
+          </Tooltip>
+
           <div className="flex gap-6 sm:mt-0 mt-4 sm:justify-center">
             <Tooltip content="GitHub">
               <Footer.Icon href="#" icon={FaGithub} />
