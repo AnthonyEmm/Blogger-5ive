@@ -89,7 +89,7 @@ const DashComments = () => {
               <Table.HeadCell>Date updated</Table.HeadCell>
               <Table.HeadCell>Comment content</Table.HeadCell>
               <Table.HeadCell>Number of likes</Table.HeadCell>
-              <Table.HeadCell>Post ID</Table.HeadCell>
+              <Table.HeadCell>Blog ID</Table.HeadCell>
               <Table.HeadCell>User ID</Table.HeadCell>
               <Table.HeadCell>Delete</Table.HeadCell>
             </Table.Head>
