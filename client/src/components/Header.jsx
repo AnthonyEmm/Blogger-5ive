@@ -64,8 +64,9 @@ const Header = () => {
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
-        <span className="px-2 py-1">
+        <span className="px-2 py-1 flex justify-between items-center gap-2 my-7">
           <img src={blogger} alt="blogger5ive logo" className="w-10 rounded" />
+          <span className="text-orange-400">Blogger 5ive&copy;</span>
         </span>
       </Link>
       <form onSubmit={handleSubmit}>

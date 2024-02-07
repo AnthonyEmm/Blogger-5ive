@@ -10,7 +10,6 @@ const Search = () => {
     sort: "desc",
     category: "Uncategorized",
   });
-  console.log(sidebarData);
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -164,7 +163,7 @@ const Search = () => {
               className="text-cyan-500 text-lg hover:underline p-7 w-full"
               onClick={handleShowMore}
             >
-              Show More
+              Show More...
             </button>
           )}
         </div>

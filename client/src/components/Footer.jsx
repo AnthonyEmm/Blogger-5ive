@@ -15,12 +15,15 @@ const FooterComponent = () => {
               className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
             >
               <Tooltip content="Blogger 5ive&copy;">
-                <span className="px-2 py-1">
+                <span className="px-2 py-2 flex justify-center items-center gap-1 mt-10 md:gap-2">
                   <img
                     src={blogger}
                     alt="blogger5ive logo"
                     className="w-20 rounded"
                   />
+                  <span className="text-orange-400 text-2xl font-semibold mt-10">
+                    Blogger 5ive&copy;
+                  </span>
                 </span>
               </Tooltip>
             </Link>
@@ -54,7 +57,6 @@ const FooterComponent = () => {
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
-            {/* ... (other code remains unchanged) */}
             <div>
               <Footer.Title title="LEGAL" />
               <Footer.LinkGroup col>
@@ -75,7 +77,7 @@ const FooterComponent = () => {
           <Tooltip content="Scroll to top">
             <Footer.Copyright
               href="#"
-              by="Blogger 5ive"
+              by="Blogger 5ive: Created by Nnaemeka C. Emesowum"
               year={new Date().getFullYear()}
             />
           </Tooltip>

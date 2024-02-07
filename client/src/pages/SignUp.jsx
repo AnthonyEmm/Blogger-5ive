@@ -52,12 +52,15 @@ const SignUp = () => {
         {/* left */}
         <div className="flex-1">
           <Link to="/" className="">
-            <span className="px-2 py-1">
+            <span className="px-2 py-1 flex items-center gap-2">
               <img
                 src={blogger}
                 alt="blogger5ive logo"
                 className="w-20 h-25 rounded"
               />
+              <span className="text-orange-400 text-3xl font-semibold mt-10">
+                Blogger 5ive&copy;
+              </span>
             </span>
           </Link>
 

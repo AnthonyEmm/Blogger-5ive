@@ -28,7 +28,8 @@ const About = () => {
               share personal experiences, and dive deep into the issues that
               matter most. Blogger 5ive is more than a platform; it's a
               community of like-minded individuals who share a love for the
-              written word. Let's embark on this blogging adventure together!
+              written word. Let's embark on this Blogger 5ive adventure
+              together!
             </p>
           </div>
         </div>

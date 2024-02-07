@@ -44,7 +44,6 @@ const UpdateBlog = () => {
         }
 
         if (data.blogs && data.blogs.length > 0) {
-          console.log("Setting formData:", data.blogs[0]);
           setPublishError(null);
           setFormData(data.blogs[0]);
         } else {
