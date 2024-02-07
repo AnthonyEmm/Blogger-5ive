@@ -72,7 +72,7 @@ const Header = () => {
       <form onSubmit={handleSubmit}>
         <TextInput
           type="text"
-          placeholder="Search blogs..."
+          placeholder="Search..."
           rightIcon={AiOutlineSearch}
           className="hidden lg:inline"
           value={searchTerm}

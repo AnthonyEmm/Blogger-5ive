@@ -60,13 +60,9 @@ const FooterComponent = () => {
             <div>
               <Footer.Title title="LEGAL" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#" target="_blank" rel="noopener noreferrer">
-                  Privacy Policy
-                </Footer.Link>
+                <Footer.Link href="#">Privacy Policy</Footer.Link>
 
-                <Footer.Link href="#" target="_blank" rel="noopener noreferrer">
-                  Terms &amp; Conditions
-                </Footer.Link>
+                <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
               </Footer.LinkGroup>
             </div>
           </div>
@@ -77,7 +73,7 @@ const FooterComponent = () => {
           <Tooltip content="Scroll to top">
             <Footer.Copyright
               href="#"
-              by="Blogger 5ive: Created by Nnaemeka C. Emesowum"
+              by="Blogger 5ive"
               year={new Date().getFullYear()}
             />
           </Tooltip>
