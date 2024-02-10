@@ -150,7 +150,8 @@ const CreateBlog = () => {
         <ReactQuill
           theme="snow"
           placeholder="Write something..."
-          className="h-72 mb-12"
+          className="bg-white text-black h-full dark:bg-gray-300 dark:text-black"
+          style={{ minHeight: "400px" }}
           required
           onChange={(value) => setFormData({ ...formData, content: value })}
         />
