@@ -149,7 +149,7 @@ const CreateBlog = () => {
         )}
         <ReactQuill
           theme="snow"
-          placeholder="Write something..."
+          placeholder="Write blog..."
           className="bg-white text-black h-full dark:bg-gray-300 dark:text-black"
           style={{ minHeight: "400px" }}
           required
