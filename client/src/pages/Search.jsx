@@ -129,6 +129,7 @@ const Search = () => {
             >
               <option value="Uncategorized">Select a category</option>
               <option value="Beauty">Beauty</option>
+              <option value="Entertainment">Entertainment</option>
               <option value="Fashion">Fashion</option>
               <option value="Finance">Finance</option>
               <option value="Health">Health</option>
